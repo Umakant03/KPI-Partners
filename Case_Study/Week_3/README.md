@@ -35,7 +35,8 @@ select * from book_transactions;
 ```
 #### 5.check the date of birth of the students and display only those students who were born on saturday or sunday.
 ```sql
-select * from student_master
+select student_name,to_char(student_dob,'fmDay') AS DOB
+ from student_master
  where trim(to_char(student_dob,'Day'))='Saturday' or trim(to_char(student_dob,'Day'))='Sunday';
 ```
 #### OUTPUT:
