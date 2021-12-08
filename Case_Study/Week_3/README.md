@@ -35,6 +35,9 @@ join book_master b
 on b.book_code=t.book_code 
 where to_char(book_expected_return_date, 'fmday')='monday' and book_actual_return_date is null;
 ```
+#### OUTPUT: 
+<img src="https://github.com/Umakant03/KPI-Partners/blob/main/Case_Study/Week_3/case4.png"   height="208" width="577">
+
 #### 5.check the date of birth of the students and display only those students who were born on saturday or sunday.
 ```sql
 select student_name,to_char(student_dob,'fmDay') AS DOB
@@ -42,7 +45,7 @@ select student_name,to_char(student_dob,'fmDay') AS DOB
  where trim(to_char(student_dob,'Day'))='Saturday' or trim(to_char(student_dob,'Day'))='Sunday';
 ```
 #### OUTPUT:
-<img src="https://github.com/Umakant03/KPI-Partners/blob/main/Case_Study/Week_3/case5.png"   height="429" width="846">
+<img src="https://github.com/Umakant03/KPI-Partners/blob/main/Case_Study/Week_3/case5.png"   height="405" width="397">
 
 #### 6.Display the staff name and hire date (through this date find out the day!).create a new column as DAY in the result nd sort it to start from monday.
 ```sql
