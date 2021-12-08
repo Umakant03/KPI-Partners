@@ -29,9 +29,11 @@ where mgr is null;
 
 #### 4.Display the details of the books that is not been returned and expected return date was monday.
 ```sql
-SELECT EXTRACT(day FROM book_expected_return_date) "Month"
-from book_transactions;
-select * from book_transactions;
+ select b.book_code,b.book_name, t.book_expected_return_date, t.book_actual_return_date 
+from book_transactions t 
+join book_master b 
+on b.book_code=t.book_code 
+where to_char(book_expected_return_date, 'fmday')='monday' and book_actual_return_date is null;
 ```
 #### 5.check the date of birth of the students and display only those students who were born on saturday or sunday.
 ```sql
