@@ -83,18 +83,18 @@ join rating
 on movie.mov_id=rating.mov_id
 where rating.rev_stars>4 
 group by mov_year 
-having count(movie.mov_title)>1 ;
+having count(movie.mov_title)>=1 ;
 ```
 #### OUTPUT:
 <img src="https://github.com/Umakant03/KPI-Partners/blob/main/Case_Study/Week_4/OUTPUT/q8.png">
 
 #### 9.Write a query in SQL to find the name of all movies who have rated their ratings with a NULL value
 ```sql
-select movie.mov_title,rating.num_o_ratings
+select movie.mov_title,rating.rev_stars
 from movie
 join rating
 on movie.mov_id=rating.mov_id
-where rating.num_o_ratings is null;
+where rating.rev_stars is null
 ```
 #### OUTPUT:
 <img src="https://github.com/Umakant03/KPI-Partners/blob/main/Case_Study/Week_4/OUTPUT/q9.png">
