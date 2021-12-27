@@ -138,13 +138,47 @@ having COUNT(mov_id)>1;
 <img src="https://github.com/Umakant03/KPI-Partners/blob/main/Case_Study/Week_4/OUTPUT/q12.png">
 
 ## Section B
-#### Use an appropriate combination of SQL, stored procedures and/or triggers to implement the ability to allow programmers to cast a new actor (by ID#) to a movie (by ID#).
-Do not allow actors to be cast more than once for each movie.
-Demonstrate that your system works by trying the following.
-Cast George Faraday (# 124) in Slumdog Millionaire (# 921).
-Cast George Faraday in Back to the Future (# 928).
-Cast George Faraday (# 124) in Slumdog Millionaire (# 921)
-Record in the script comments what happens with each of these updates and why.
+####  Use an appropriate combination of SQL, stored procedures and/or triggers to implement the ability to allow programmers to cast a new actor (by ID#) to a movie (by ID#).
+#### Do not allow actors to be cast more than once for each movie.
+#### Demonstrate that your system works by trying the following.
+#### Cast George Faraday (# 124) in Slumdog Millionaire (# 921).
+#### Cast George Faraday in Back to the Future (# 928).
+#### Cast George Faraday (# 124) in Slumdog Millionaire (# 921)
+#### Record in the script comments what happens with each of these updates and why.
+
+### CODE:
+```sql
+--STEP1:Chek the name of actor with act_id=124
+select act_fname,act_lname,act_gender
+from actor
+where act_id =124;
+
+--Step 2: update the name of actor with act_id =124 with fname = ‘George’ , lname=’Farady’, gender= ‘M’
+update actor 
+set act_fname='George',act_lname='Faraday',act_gender='M'
+where act_id=124;
+
+select act_fname,act_lname,act_gender
+from actor
+where act_id=124
+
+--Step 3: create the stored procedure
+
+go
+create proc spUpdateCast
+@act_id integer,
+@mov_id integer,
+@role char(30),
+as
+begin
+SET NOCOUNT ON
+    declare @count integer=(select(*) from movie_cast where act_id=@act_id and mov_id=@mov_id)
+    if @count>=1
+       print('Already cast assigned, Same Actors can't caste more than once in a movie.')
+    else
+        insert into movie_cast values(@act_id,@mov_id,@role)
+end;
+```
 
 
 
