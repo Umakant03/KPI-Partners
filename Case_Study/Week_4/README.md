@@ -137,6 +137,16 @@ having COUNT(mov_id)>1;
 #### OUTPUT:
 <img src="https://github.com/Umakant03/KPI-Partners/blob/main/Case_Study/Week_4/OUTPUT/q12.png">
 
+## Section B
+#### Use an appropriate combination of SQL, stored procedures and/or triggers to implement the ability to allow programmers to cast a new actor (by ID#) to a movie (by ID#).
+Do not allow actors to be cast more than once for each movie.
+Demonstrate that your system works by trying the following.
+Cast George Faraday (# 124) in Slumdog Millionaire (# 921).
+Cast George Faraday in Back to the Future (# 928).
+Cast George Faraday (# 124) in Slumdog Millionaire (# 921)
+Record in the script comments what happens with each of these updates and why.
+
+
 
 
 
