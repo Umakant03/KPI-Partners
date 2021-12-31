@@ -179,7 +179,8 @@ SET NOCOUNT ON
         insert into movie_cast values(@act_id,@mov_id,@role)
 end;
 ```
-
+#### OUTPUT:
+<img src="https://github.com/Umakant03/KPI-Partners/blob/main/Case_Study/Week_4/OUTPUT/section-B.png">
 
 
 
