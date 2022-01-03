@@ -36,4 +36,19 @@ select * from(select d.country, f.fare_final,
 rownum as rank from dim_city d join fact_trip f on d.city_id=f.city_id
 where to_char(datestr, 'W')=2 order by 2) where mod(rank, 2)=0;
 
+--f.Get WOW growth % for US region for June Month. WOW- Week over week .
+
+select (((select sum(fare_final) from fact_trip where to_char(datestr, 'W')=1)  - (select sum(fare_final) from fact_trip where to_char(datestr, 'W')=2))
+  / (select sum(fare_final) from fact_trip where to_char(datestr, 'W')=1)) * 100 as "Growth%"
+from fact_trip group by datestr;
+
+--g.Growth % = ((Current week fare final - previous week fare final) / previous week fare final) * 100
+
+select(((select sum(fare_final) from fact_trip where to_char(datestr, 'W')='1')
+ - (select sum(fare_final) from fact_trip where to_char(datestr, 'W')='2'))
+ / (select sum(fare_final) from fact_trip where to_char(datestr, 'W')='1')) * 100 as "Growth%"
+from dual;
+
+
+
 
