@@ -1,0 +1,11 @@
+1.Scala is object orieted programming language and it is case sensitive programming language.
+2.Object name in program and file_name.scala should be same and package name is the directory name.
+3.it follow camel style variable typing like:MyName
+4.Class name should start with Capital letter like: class MyNotebook
+5.Method name should start with small letter like: def hiiWorld();
+6.Data Type in scala:
+Byte(-128-127),Short(-32768 to 32767),Int(-2147483648 to 2147483647),Long(-9223372036854775808 to 9223372036854775807),
+Float(32 bit),Double(64 bit),Char(16 bit unsigned unicode character),String,Boolean(true or false),
+7.Variable declaration
+*.val or val VariableName : DataType = [Initial Value]--var=mutable variable,val=immutable variable;
+*.val (myVar1: Int, myVar2: String) = Pair(40, "Foo")
