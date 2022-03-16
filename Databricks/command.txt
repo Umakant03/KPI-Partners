@@ -1,0 +1,2 @@
+%fs ls "/FileStore/"     --to show the folder
+dbutils.fs.ls("/FileStore/shared_uploads/training@kpipartners.com/")
